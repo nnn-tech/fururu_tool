@@ -1,0 +1,25 @@
+<style>
+    .header_link_item.new_import::before{
+        background-color: #7ECEF4;
+    }
+</style>
+
+
+<div class="form_wrapper">
+    <h2>インポート</h2>
+    <div class="form_box">
+        <%= form_with url: matter_import_path, local: true do |form| %>
+            <div class="import_item">
+                <%# <p>エクセル</p> %>
+                
+                <label for="sample1">
+                <%# ファイルを選択 %>
+                <%= form.file_field :file %>
+            </label>
+            </div>
+            <div class="form_button">
+                <input type="submit" value="インポート">
+                <%# <%= form.submit %>
+            </div>
+        <% end %>
+    </div>

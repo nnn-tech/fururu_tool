@@ -1,0 +1,61 @@
+<style>
+    .header_link_item.edit::before{
+        background-color: #7ECEF4;
+    }
+</style>
+
+<div class="form_wrapper">
+    <h2>案件編集</h2>
+    <div class="form_box">
+        <% @matter.errors.full_messages.each do |message| %>
+            <%= message %>
+        <% end %>
+        <%= form_tag("/matter/#{@matter.id}/update") do %>
+            <div class="form_item">
+                <p>案件名</p>
+                <input type="text" name="name" value="<%= @matter.name %>">
+            </div>
+            <div class="form_item">
+                <p>ローマ字検索</p>
+                <input type="text" name="english" value="<%= @matter.english %>">
+            </div>
+            <div class="form_item">
+                <p>担当者</p>
+                <input type="text" name="rap" value="<%= @matter.rap %>">
+            </div>
+            <div class="form_item">
+                <p>ドメイン</p>
+                <input type="text" name="domain" value="<%= @matter.domain %>">
+            </div>
+            <div class="form_item">
+                <p>レスポンシブかどうか</p>
+                <div class="radio_box">
+                    <div class="radio_item">
+                        <label>はい</label>
+                        <%= radio_button_tag("rwd", "1") %>
+                    </div>
+                    <div class="radio_item">
+                        <label>いいえ</label>
+                        <%= radio_button_tag("rwd", "2") %>
+                    </div>
+                </div>
+            </div>
+            <div class="form_item">
+                <p>SSL化しているか</p>
+                <div class="radio_box">
+                    <div class="radio_item">
+                        <label>はい</label>
+                        <%= radio_button_tag("ssl", "1") %>
+                    </div>
+                    <div class="radio_item">
+                        <label>いいえ</label>
+                        <%= radio_button_tag("ssl", "2") %>
+                    </div>
+                </div>
+            </div>
+            <div class="form_button">
+                <input type="submit" value="変更">
+            </div>
+        <% end %>
+    </div>
+</div>

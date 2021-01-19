@@ -1,0 +1,39 @@
+<style>
+    .header_link_item.production::before{
+        background-color: #7ECEF4;
+    }
+</style>
+
+<div class="matter_frame">
+    <% @matters.each do |matter| %>
+        <div class="matter_item">
+            <h2 class="matter_name">
+                <span class="lang_jp">
+                    <%= matter.name %>
+                </span>
+                <span class="lang_eng">
+                    <%= matter.english %>
+                </span>
+            </h2>
+            <div class="matter_info_box">
+                <div class="matter_link_box">
+                    <% if matter.rwd == 1 && matter.ssl == 1 %>
+                        <a href="https://www.<%= matter.domain %>.com/" class="rwd_link">RWD</a>
+                    <% elsif matter.rwd == 1 && matter.ssl == 2 %>
+                        <a href="https://www.<%= matter.domain %>.com/" class="rwd_link">RWD</a>
+                    <% elsif matter.rwd == 2 && matter.ssl == 1 %>
+                        <a href="https://www.<%= matter.domain %>.com/" class="pc_link">PC</a>
+                        <a href="https://www.<%= matter.domain %>.com/sp" class="sp_link">SP</a>
+                    <% else %>
+                        <a href="http://www.<%= matter.domain %>.com/" class="pc_link">PC</a>
+                        <a href="http://www.<%= matter.domain %>.com/sp" class="sp_link">SP</a>
+                    <% end %>
+                </div>
+                <div class="rep_name">
+                    <%= matter.rap %>
+                </div>
+            </div>
+        </div>
+    <% end %>
+</div>   
+

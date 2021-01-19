@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>FururuTool</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header>
+      <div class="header_box">
+        <div class="header_logo">
+          <%= link_to("Fururu.tool", "/", class: "header_logo_item") %>
+        </div>
+        <div class="header_link">
+          <%# <%= link_to("HOME", "/", class: "header_link_item") %>
+          <%= link_to("本番環境", "/matter/production", class: "header_link_item production") %>
+          <%= link_to("テスト環境", "/matter/test", class: "header_link_item test") %>
+          <%= link_to("案件編集", "/matter/list", class: "header_link_item list") %>
+          <%= link_to("案件追加", "/matter/new", class: "header_link_item new") %>
+          <%= link_to("インポート", "/matter/new_import", class: "header_link_item new_import") %>
+        </div>
+      </div>
+    </header>
+
+    
+    <% if flash[:notice] %>
+      <div class="flash_box">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+
+    <div class="contents_box">
+      <%= yield %>
+    </div>
+  </body>
+</html>
